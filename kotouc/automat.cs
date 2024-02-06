@@ -9,6 +9,7 @@ namespace kotouc
     internal class automat
     {
         List<kotouc> kotoucList= new List<kotouc>();
+        public int skore { get; set;}
 
         public automat()
         {
@@ -28,12 +29,13 @@ namespace kotouc
             {
                sb.Append(kotouc.ToString());
             }
+            sb.AppendLine("Počet skóre: "+skore);
             return sb.ToString();
         }
 
         private bool kontrolaVyhryBig()
         {
-            if (kotoucList[0]== kotoucList[1]&& kotoucList[0] == kotoucList[2])
+            if (kotoucList[0].hodnota== kotoucList[1].hodnota && kotoucList[0].hodnota == kotoucList[2].hodnota)
             {
                 return true;
             }
@@ -56,12 +58,12 @@ namespace kotouc
         {
             foreach (var kotouc in kotoucList)
             {
-                if (kotouc.hodnota % 2 != 0)
+                if (kotouc.hodnota % 2 == 0)
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
         
         private void zatoc()
@@ -76,6 +78,18 @@ namespace kotouc
         public void hraj()
         {
             zatoc();
+            if (kontrolaVyhryBig())
+            {
+                skore += 100;
+            }
+            else if (kontrolaVyhrySmallLiche() | kontrolaVyhrySmallSude())
+            {
+                skore += 10;
+            }
+            else
+            {
+                skore -= 5;
+            }
         }
     }
 }

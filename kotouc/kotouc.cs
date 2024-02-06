@@ -8,6 +8,7 @@ namespace kotouc
 {
     internal class kotouc
     {
+        static Random rnd = new Random();
         public int hodnota {  get; private set; }
         public kotouc()
         {
@@ -17,8 +18,8 @@ namespace kotouc
 
         public void Zatoc()
         {
-            Random rnd = new Random();
-            hodnota =  rnd.Next(1, 10);
+
+            hodnota = rnd.Next(1, 10);
             
         }
 

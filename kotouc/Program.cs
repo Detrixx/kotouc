@@ -10,12 +10,12 @@ namespace kotouc
     {
         static void Main(string[] args)
         {
-            kotouc k = new kotouc();
-            k.Zatoc();
-            Console.Write(k.ToString());
-
+       
             automat automat = new automat();
+            automat.skore = 100;
+            automat.hraj();
             Console.Write(automat.ToString());
+
             
         }
     }
