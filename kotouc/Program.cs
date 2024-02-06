@@ -10,6 +10,13 @@ namespace kotouc
     {
         static void Main(string[] args)
         {
+            kotouc k = new kotouc();
+            k.Zatoc();
+            Console.Write(k.ToString());
+
+            automat automat = new automat();
+            Console.Write(automat.ToString());
+            
         }
     }
 }
